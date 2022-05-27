@@ -3,9 +3,9 @@ import { Transport } from '@nestjs/microservices';
 import { AppModule } from './app.module';
 
 const microservicesOptions = {
-  transport: Transport.MQTT,
+  transport: Transport.NATS,
   options: {
-    url: 'mqtt://localhost:1883',
+    servers: ['nats://localhost:4222'],
   },
 };
 

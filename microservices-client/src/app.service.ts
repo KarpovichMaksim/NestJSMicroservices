@@ -11,9 +11,9 @@ export class AppService {
 
   constructor() {
     this.client = ClientProxyFactory.create({
-      transport: Transport.MQTT,
+      transport: Transport.NATS,
       options: {
-        url: 'mqtt://localhost:1883',
+        servers: ['nats://localhost:4222'],
       },
     });
   }
