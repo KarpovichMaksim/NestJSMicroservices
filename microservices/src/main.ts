@@ -3,9 +3,9 @@ import { Transport } from '@nestjs/microservices';
 import { AppModule } from './app.module';
 
 const microservicesOptions = {
-  transport: Transport.REDIS,
+  transport: Transport.MQTT,
   options: {
-    url: 'redis://localhost:6379',
+    url: 'mqtt://localhost:1883',
   },
 };
 

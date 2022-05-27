@@ -11,9 +11,9 @@ export class AppService {
 
   constructor() {
     this.client = ClientProxyFactory.create({
-      transport: Transport.REDIS,
+      transport: Transport.MQTT,
       options: {
-        url: 'redis://127.0.0.1:6379',
+        url: 'mqtt://localhost:1883',
       },
     });
   }
