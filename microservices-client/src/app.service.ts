@@ -11,9 +11,13 @@ export class AppService {
 
   constructor() {
     this.client = ClientProxyFactory.create({
-      transport: Transport.NATS,
+      transport: Transport.RMQ,
       options: {
-        servers: ['nats://localhost:4222'],
+        urls: ['amqp://localhost:5672'],
+        queue: 'cats_queue',
+        queueOptions: {
+          durable: false,
+        },
       },
     });
   }

@@ -3,9 +3,13 @@ import { Transport } from '@nestjs/microservices';
 import { AppModule } from './app.module';
 
 const microservicesOptions = {
-  transport: Transport.NATS,
+  transport: Transport.RMQ,
   options: {
-    servers: ['nats://localhost:4222'],
+    urls: ['amqp://localhost:5672'],
+    queue: 'cats_queue',
+    queueOptions: {
+      durable: false,
+    },
   },
 };
 
