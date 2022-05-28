@@ -3,26 +3,31 @@ import {
   ClientProxyFactory,
   Transport,
   ClientProxy,
+  ClientKafka,
 } from '@nestjs/microservices';
 
 @Injectable()
 export class AppService {
-  private client: ClientProxy;
+  private client: ClientKafka;
 
   constructor() {
     this.client = ClientProxyFactory.create({
-      transport: Transport.RMQ,
+      transport: Transport.KAFKA,
       options: {
-        urls: ['amqp://localhost:5672'],
-        queue: 'cats_queue',
-        queueOptions: {
-          durable: false,
+        client: {
+          clientId: 'math',
+          brokers: ['localhost:9092'],
+        },
+        consumer: {
+          groupId: 'math-consumer',
         },
       },
-    });
+    }) as ClientKafka;
+
+    this.client.subscribeToResponseOf('add');
   }
 
-  public accumulate(data: number[]) {
-    return this.client.send<number, number[]>('add', data);
+  public accumulate() {
+    return this.client.send('add', {});
   }
 }

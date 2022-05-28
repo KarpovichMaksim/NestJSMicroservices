@@ -7,7 +7,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @MessagePattern('add')
-  accumulate(data: number[]): number {
-    return this.appService.accumulate(data);
+  accumulate(): number {
+    return this.appService.accumulate();
   }
 }

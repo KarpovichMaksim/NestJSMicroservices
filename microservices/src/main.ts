@@ -3,12 +3,14 @@ import { Transport } from '@nestjs/microservices';
 import { AppModule } from './app.module';
 
 const microservicesOptions = {
-  transport: Transport.RMQ,
+  transport: Transport.KAFKA,
   options: {
-    urls: ['amqp://localhost:5672'],
-    queue: 'cats_queue',
-    queueOptions: {
-      durable: false,
+    client: {
+      clientId: 'math',
+      brokers: ['localhost:9092'],
+    },
+    consumer: {
+      groupId: 'math-consumer',
     },
   },
 };

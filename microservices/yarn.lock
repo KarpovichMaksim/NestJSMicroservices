@@ -3533,6 +3533,11 @@
   optionalDependencies:
     "graceful-fs" "^4.1.6"
 
+"kafkajs@*", "kafkajs@^2.0.1":
+  "integrity" "sha512-UCR/MxWvLNqV6HAidD9fb4qwzgJA2GmxzhZWbeBMgRe7noeadRMdGYTpvjW8hm6WtOlMqPdr5cdfpMEKmQXVHw=="
+  "resolved" "https://registry.npmjs.org/kafkajs/-/kafkajs-2.0.1.tgz"
+  "version" "2.0.1"
+
 "kleur@^3.0.3":
   "integrity" "sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w=="
   "resolved" "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz"

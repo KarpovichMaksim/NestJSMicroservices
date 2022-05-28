@@ -12,8 +12,8 @@ export class AppController {
   // Map the 'POST /add' route to this method
   @Post('add')
   // Define the logic to be executed
-  async accumulate(@Body('data') data: number[]) {
-    this.logger.log('Adding ' + data.toString()); // Log something on every call
-    return this.mathService.accumulate(data); // use math service to calc result & return
+  async accumulate() {
+    //this.logger.log('Adding ' + data.toString()); // Log something on every call
+    return this.mathService.accumulate(); // use math service to calc result & return
   }
 }
